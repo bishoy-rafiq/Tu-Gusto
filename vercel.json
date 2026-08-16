@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "redirects": [
+    { "source": "/", "destination": "/en", "permanent": true }
+  ]
+}
