@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Premium espresso machines, grinders, and freshly roasted beans in Egypt — made to your taste. Free shipping, authentic products, fast support.",
   applicationName: "Tu Gusto",
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   themeColor: "#141009",
   keywords: [
     "espresso machine",
