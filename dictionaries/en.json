@@ -1,0 +1,227 @@
+{
+  "brand": "TU GUSTO",
+  "nav": {
+    "shop": "Shop",
+    "story": "Our Story",
+    "cart": "Cart"
+  },
+  "hero": {
+    "tagline": "Premium Coffee Experience",
+    "headline": "Tu Gusto",
+    "subheadline": "Premium espresso machines, grinders, and beans — made to your taste.",
+    "cta": "Shop Now",
+    "scroll": "Scroll"
+  },
+  "marquee": {
+    "summerSale": "Summer Sale",
+    "discount": "Up to 30% Off",
+    "freeShipping": "Free Shipping 20000+ EGP",
+    "newArrivals": "New Arrivals"
+  },
+  "values": [
+    {
+      "title": "Barista-Grade Quality",
+      "text": "Machines trusted by professionals, made simple for home use"
+    },
+    {
+      "title": "Fast, Tracked Delivery",
+      "text": "Nationwide shipping with real-time tracking via Bosta"
+    },
+    {
+      "title": "Real Support",
+      "text": "Setup guidance and after-sales help"
+    },
+    {
+      "title": "Cash on Delivery",
+      "text": "Shop with confidence, pay when it arrives"
+    }
+  ],
+  "story": {
+    "title": "OUR STORY",
+    "text": "Our journey began with a simple search for authenticity. In a market saturated with commercial coffee and compromised quality, TU GUSTO was born to set a new standard for coffee lovers. We bridge the gap between professional coffee crafting and your home experience.",
+    "tagline": "Your Coffee. Your Rules. Always Tu Relax, Tu Gusto.",
+    "cta": "Read Our Full Story"
+  },
+  "cta": {
+    "title": "Ready to upgrade your coffee?",
+    "text": "Discover our curated selection of premium espresso machines and accessories.",
+    "button": "Shop Now"
+  },
+  "footer": "Proudly shipping across Egypt with Bosta — fast, trackable delivery to your door.",
+  "home": {
+    "featuredEyebrow": "Featured Collection",
+    "featuredTitle": "Everything Your Cup Needs",
+    "featuredSub": "From barista-grade machines to freshly roasted beans — a curated setup for your home bar.",
+    "viewAll": "View All Products",
+    "bestseller": "Bestseller",
+    "categoriesEyebrow": "Shop by Category",
+    "categoriesTitle": "Pick Your Ritual"
+  },
+  "categories": {
+    "machines": "Espresso Machines",
+    "grinders": "Grinders",
+    "beans": "Coffee Beans",
+    "coffee": "Coffee",
+    "accessories": "Accessories",
+    "other": "Other"
+  },
+  "related": {
+    "eyebrow": "You May Also Like",
+    "title": "Pairs Perfectly With"
+  },
+  "products": {
+    "title": "Shop All",
+    "subtitle": "Espresso machines, grinders, fresh beans and more — built for your daily ritual.",
+    "empty": "No products yet — add some via Prisma Studio (see README).",
+    "addToCart": "Add to Cart",
+    "added": "Added",
+    "buyNow": "Buy Now",
+    "add": "Add",
+    "search": "Search products…",
+    "all": "All",
+    "sort": "Sort by",
+    "sortNewest": "Newest",
+    "sortLow": "Price: Low to High",
+    "sortHigh": "Price: High to Low",
+    "sortPopular": "Most Popular",
+    "results": "{count} products",
+    "noResults": "No products match your search.",
+    "noResultsSub": "Try a different keyword or category."
+  },
+  "product": {
+    "label": "Product",
+    "outOfStock": "Currently out of stock",
+    "outOfStockDesc": "This product is temporarily unavailable. We're working on getting more!",
+    "fastShipping": "Fast Shipping",
+    "secure": "Secure",
+    "quality": "Quality"
+  },
+  "stock": {
+    "outOfStock": "Out of Stock",
+    "onlyLeft": "Only {count} left",
+    "inStock": "{count} in stock"
+  },
+  "gallery": {
+    "soldOut": "SOLD OUT"
+  },
+  "stats": {
+    "views": "Views",
+    "review": "Review",
+    "reviews": "Reviews"
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "basedOn": "Based on {count} reviews",
+    "noReviews": "No reviews yet",
+    "writeReview": "Write a Review",
+    "cancel": "Cancel",
+    "shareExperience": "Share your experience",
+    "yourName": "Your Name",
+    "rating": "Rating",
+    "yourReview": "Your Review",
+    "reviewPlaceholder": "What did you like or dislike about this product?",
+    "submitting": "Submitting...",
+    "submitReview": "Submit Review",
+    "reviewSubmitted": "Review submitted!",
+    "thankYou": "Thank you for sharing your experience.",
+    "delete": "Delete",
+    "beFirst": "Be the first to share your experience!"
+  },
+  "cartWidget": {
+    "soldOut": "Sold Out",
+    "remove": "Remove"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "browse": "Browse products",
+    "remove": "Remove",
+    "total": "Total",
+    "cart": "View Cart",
+    "checkout": "Checkout"
+  },
+  "quantity": {
+    "label": "Quantity",
+    "total": "Total",
+    "max": "Max",
+    "maxReached": "Max reached",
+    "onlyLeft": "Only {count} left",
+    "inStock": "{count} in stock"
+  },
+  "notify": {
+    "getNotified": "Get notified when it's back",
+    "sendEmail": "We'll send you a one-time email when restocked.",
+    "notifyMe": "Notify Me",
+    "onTheList": "You're on the list!",
+    "emailWhenBack": "We'll email you when this product is back in stock."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "subtitle": "Cash on Delivery — pay when your order arrives.",
+    "name": "Full name",
+    "phone": "Phone number",
+    "address": "Address",
+    "city": "City",
+    "placeOrder": "Place Order (COD)",
+    "placing": "Placing order..."
+  },
+  "success": {
+    "title": "Order Placed!",
+    "text": "Thank you — we'll call to confirm and your order will ship via Bosta soon.",
+    "continue": "Continue shopping"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "message": "An unexpected error occurred",
+    "retry": "Try again",
+    "home": "Go home"
+  },
+  "loading": "Loading...",
+  "wheel": {
+    "openLabel": "Open prize wheel",
+    "youWon": "You won",
+    "yourPrize": "Your prize",
+    "discountCode": "Your discount code",
+    "autoApply": "This code will be applied automatically at checkout.",
+    "continueShopping": "Continue Shopping",
+    "luckySpin": "Lucky Spin",
+    "spinWin": "Spin & Win!",
+    "tryLuck": "Try your luck — spin to reveal your exclusive discount.",
+    "loadingPrizes": "Loading prizes..."
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "About TU GUSTO",
+    "intro": {
+      "heading": "ABOUT US",
+      "body": "At TU GUSTO (Spanish for \"To Your Taste\"), we believe coffee is not just a daily routine — it is a personal moment of comfort and relaxation."
+    },
+    "story": {
+      "heading": "OUR STORY",
+      "body": "Our journey began with a simple search for authenticity. In a market saturated with commercial coffee and compromised quality, TU GUSTO was born to set a new standard for coffee lovers. We bridge the gap between professional coffee crafting and your home experience."
+    },
+    "offer": {
+      "heading": "WHAT WE OFFER",
+      "intro": "A promise built on three pillars:",
+      "items": [
+        {
+          "title": "Home Barista Equipment",
+          "body": "Providing top-tier machines and precision tools for the ultimate brewing experience at home."
+        },
+        {
+          "title": "Pure & Authentic Beans",
+          "body": "Selected beans with zero additives, ensuring pure, rich flavors in every cup."
+        },
+        {
+          "title": "Coffee Expertise",
+          "body": "Guiding you through every step to brew your coffee precisely the way you like it."
+        }
+      ]
+    },
+    "promise": {
+      "heading": "OUR PROMISE",
+      "body": "Your Coffee. Your Rules. Always Tu Relax, Tu Gusto."
+    },
+    "tagline": "TU GUSTO — Driven by Passion. Crafted to Your Taste."
+  }
+}

@@ -1,0 +1,1090 @@
+{
+  "common.cancel": {
+    "en": "Cancel",
+    "ar": "إلغاء"
+  },
+  "common.save": {
+    "en": "Save",
+    "ar": "حفظ"
+  },
+  "common.saving": {
+    "en": "Saving…",
+    "ar": "جارٍ الحفظ…"
+  },
+  "common.delete": {
+    "en": "Delete",
+    "ar": "حذف"
+  },
+  "common.edit": {
+    "en": "Edit",
+    "ar": "تعديل"
+  },
+  "common.add": {
+    "en": "Add",
+    "ar": "إضافة"
+  },
+  "common.total": {
+    "en": "Total",
+    "ar": "الإجمالي"
+  },
+  "common.subtotal": {
+    "en": "Subtotal",
+    "ar": "المجموع الفرعي"
+  },
+  "common.delivery": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
+  "common.discount": {
+    "en": "Discount",
+    "ar": "الخصم"
+  },
+  "common.stock": {
+    "en": "stock",
+    "ar": "المخزون"
+  },
+  "common.active": {
+    "en": "Active",
+    "ar": "مفعّلة"
+  },
+  "common.inactive": {
+    "en": "Inactive",
+    "ar": "غير مفعّلة"
+  },
+  "common.tryAgain": {
+    "en": "Please try again.",
+    "ar": "حاول مرة أخرى."
+  },
+  "common.somethingWrong": {
+    "en": "Something went wrong. Please try again.",
+    "ar": "حدث خطأ ما. حاول مرة أخرى."
+  },
+  "nav.dashboard": {
+    "en": "Dashboard",
+    "ar": "لوحة التحكم"
+  },
+  "nav.orders": {
+    "en": "Orders",
+    "ar": "الطلبات"
+  },
+  "nav.products": {
+    "en": "Products",
+    "ar": "المنتجات"
+  },
+  "nav.wheel": {
+    "en": "Wheel",
+    "ar": "عجلة الحظ"
+  },
+  "nav.settings": {
+    "en": "Settings",
+    "ar": "الإعدادات"
+  },
+  "nav.translations": {
+    "en": "Translations",
+    "ar": "الترجمات"
+  },
+  "nav.viewStore": {
+    "en": "View Store",
+    "ar": "عرض المتجر"
+  },
+  "nav.admin": {
+    "en": "Admin",
+    "ar": "الإدارة"
+  },
+  "login.subtitle": {
+    "en": "Admin Dashboard",
+    "ar": "لوحة تحكم الأدمن"
+  },
+  "login.signIn": {
+    "en": "Sign In",
+    "ar": "تسجيل الدخول"
+  },
+  "login.password": {
+    "en": "Password",
+    "ar": "كلمة المرور"
+  },
+  "login.passwordPlaceholder": {
+    "en": "Enter admin password",
+    "ar": "أدخل كلمة مرور الأدمن"
+  },
+  "login.signingIn": {
+    "en": "Signing in…",
+    "ar": "جارٍ تسجيل الدخول…"
+  },
+  "login.incorrectPassword": {
+    "en": "Incorrect password",
+    "ar": "كلمة المرور غير صحيحة"
+  },
+  "login.footer": {
+    "en": "Tu Gusto Admin",
+    "ar": "إدارة تو جوستو"
+  },
+  "dash.greetingMorning": {
+    "en": "Good morning",
+    "ar": "صباح الخير"
+  },
+  "dash.greetingAfternoon": {
+    "en": "Good afternoon",
+    "ar": "مساء الخير"
+  },
+  "dash.greetingEvening": {
+    "en": "Good evening",
+    "ar": "مساء الخير"
+  },
+  "dash.title": {
+    "en": "Dashboard",
+    "ar": "لوحة التحكم"
+  },
+  "dash.refresh": {
+    "en": "Refresh",
+    "ar": "تحديث"
+  },
+  "dash.liveOverview": {
+    "en": "Live overview",
+    "ar": "نظرة مباشرة"
+  },
+  "dash.refreshed": {
+    "en": "Dashboard refreshed",
+    "ar": "تم تحديث لوحة التحكم"
+  },
+  "dash.updated": {
+    "en": "Updated {time}",
+    "ar": "آخر تحديث {time}"
+  },
+  "dash.totalRevenue": {
+    "en": "Total Revenue",
+    "ar": "إجمالي الإيرادات"
+  },
+  "dash.todayRevenue": {
+    "en": "+{n} today",
+    "ar": "+{n} اليوم"
+  },
+  "dash.totalOrders": {
+    "en": "Total Orders",
+    "ar": "إجمالي الطلبات"
+  },
+  "dash.todayOrders": {
+    "en": "{n} today",
+    "ar": "{n} اليوم"
+  },
+  "dash.pendingOrders": {
+    "en": "Pending Orders",
+    "ar": "الطلبات المعلقة"
+  },
+  "dash.confirmed": {
+    "en": "{n} confirmed",
+    "ar": "{n} مؤكّدة"
+  },
+  "dash.products": {
+    "en": "Products",
+    "ar": "المنتجات"
+  },
+  "dash.inCatalog": {
+    "en": "in catalog",
+    "ar": "في الكتالوج"
+  },
+  "dash.manageOrders": {
+    "en": "Manage Orders",
+    "ar": "إدارة الطلبات"
+  },
+  "dash.addProduct": {
+    "en": "Add Product",
+    "ar": "إضافة منتج"
+  },
+  "dash.wheel": {
+    "en": "Wheel",
+    "ar": "عجلة الحظ"
+  },
+  "dash.recentOrders": {
+    "en": "Recent Orders",
+    "ar": "أحدث الطلبات"
+  },
+  "dash.viewAll": {
+    "en": "View all",
+    "ar": "عرض الكل"
+  },
+  "dash.noOrders": {
+    "en": "No orders yet",
+    "ar": "لا توجد طلبات بعد"
+  },
+  "dash.topProducts": {
+    "en": "Top Products",
+    "ar": "الأكثر مبيعًا"
+  },
+  "dash.noSales": {
+    "en": "No sales yet",
+    "ar": "لا مبيعات بعد"
+  },
+  "dash.sold": {
+    "en": "{n} sold",
+    "ar": "تم بيع {n}"
+  },
+  "status.pending": {
+    "en": "Pending",
+    "ar": "معلّق"
+  },
+  "translations.title": {
+    "en": "Translations",
+    "ar": "الترجمات"
+  },
+  "translations.subtitle": {
+    "en": "Edit the EN/AR strings for the admin and the storefront. Saves go straight to the local JSON files (dictionaries/); the storefront picks them up on the next build.",
+    "ar": "عدّل نصوص الإنجليزية والعربية للوحة التحكم والمتجر. تُحفظ التغييرات مباشرة في ملفات JSON المحلية (dictionaries/) وتنعكس على المتجر بعد إعادة البناء."
+  },
+  "translations.searchPlaceholder": {
+    "en": "Search keys or text…",
+    "ar": "ابحث في المفاتيح أو النصوص…"
+  },
+  "translations.all": {
+    "en": "All",
+    "ar": "الكل"
+  },
+  "translations.customized": {
+    "en": "customized",
+    "ar": "مخصّص"
+  },
+  "translations.en": {
+    "en": "English",
+    "ar": "الإنجليزية"
+  },
+  "translations.ar": {
+    "en": "Arabic",
+    "ar": "العربية"
+  },
+  "translations.key": {
+    "en": "Key",
+    "ar": "المفتاح"
+  },
+  "translations.reset": {
+    "en": "Reset",
+    "ar": "إعادة تعيين"
+  },
+  "translations.save": {
+    "en": "Save changes",
+    "ar": "حفظ التغييرات"
+  },
+  "translations.saved": {
+    "en": "Translations saved",
+    "ar": "تم حفظ الترجمات"
+  },
+  "translations.savedCount": {
+    "en": "{n} translations saved",
+    "ar": "تم حفظ {n} ترجمة"
+  },
+  "translations.noChanges": {
+    "en": "No changes to save",
+    "ar": "لا توجد تغييرات للحفظ"
+  },
+  "translations.loading": {
+    "en": "Loading translations…",
+    "ar": "جارٍ تحميل الترجمات…"
+  },
+  "translations.empty": {
+    "en": "No translations match your search.",
+    "ar": "لا توجد ترجمات مطابقة لبحثك."
+  },
+  "translations.noneCustomized": {
+    "en": "No custom edits yet. All values come from the app defaults.",
+    "ar": "لا توجد تعديلات مخصّصة بعد. جميع القيم مأخوذة من الإعدادات الافتراضية."
+  },
+  "translations.storefront": {
+    "en": "Storefront",
+    "ar": "المتجر"
+  },
+  "translations.admin": {
+    "en": "Admin",
+    "ar": "لوحة التحكم"
+  },
+  "translations.changesCount": {
+    "en": "{n} unsaved change(s)",
+    "ar": "{n} تغيير غير محفوظ"
+  },
+  "translations.showCustomizedOnly": {
+    "en": "Customized only",
+    "ar": "المخصّص فقط"
+  },
+  "translations.copyKey": {
+    "en": "Copy key",
+    "ar": "نسخ المفتاح"
+  },
+  "translations.copied": {
+    "en": "Copied",
+    "ar": "تم النسخ"
+  },
+  "status.confirmed": {
+    "en": "Confirmed",
+    "ar": "مؤكّد"
+  },
+  "status.shipped": {
+    "en": "Shipped",
+    "ar": "تم الشحن"
+  },
+  "status.delivered": {
+    "en": "Delivered",
+    "ar": "تم التسليم"
+  },
+  "status.cancelled": {
+    "en": "Cancelled",
+    "ar": "مُلغى"
+  },
+  "orders.title": {
+    "en": "Orders",
+    "ar": "الطلبات"
+  },
+  "orders.totalCount": {
+    "en": "{n} total orders",
+    "ar": "إجمالي الطلبات {n}"
+  },
+  "orders.newOrder": {
+    "en": "New Order",
+    "ar": "طلب جديد"
+  },
+  "orders.testNotification": {
+    "en": "Test Notification",
+    "ar": "إشعار تجريبي"
+  },
+  "orders.pushSent": {
+    "en": "push sent",
+    "ar": "تم إرسال الإشعار"
+  },
+  "orders.emailSent": {
+    "en": "email sent",
+    "ar": "تم إرسال البريد"
+  },
+  "orders.testSent": {
+    "en": "Test notification sent",
+    "ar": "تم إرسال الإشعار التجريبي"
+  },
+  "orders.nothingConfigured": {
+    "en": "Nothing configured yet",
+    "ar": "لا يوجد شيء مُعدّ بعد"
+  },
+  "orders.whatsappBanner": {
+    "en": "Customer email sent. Send status update via WhatsApp:",
+    "ar": "تم إرسال بريد العميل. أرسل تحديث الحالة عبر واتساب:"
+  },
+  "orders.sendWhatsapp": {
+    "en": "Send on WhatsApp",
+    "ar": "إرسال عبر واتساب"
+  },
+  "orders.searchPlaceholder": {
+    "en": "Search by #order, name, phone, email, city…",
+    "ar": "ابحث بالرقم، الاسم، الهاتف، البريد، المدينة…"
+  },
+  "orders.all": {
+    "en": "All",
+    "ar": "الكل"
+  },
+  "orders.none": {
+    "en": "No orders found",
+    "ar": "لا توجد طلبات"
+  },
+  "orders.unknownProduct": {
+    "en": "Unknown product",
+    "ar": "منتج غير معروف"
+  },
+  "orders.contact": {
+    "en": "Contact",
+    "ar": "بيانات التواصل"
+  },
+  "orders.address": {
+    "en": "Address",
+    "ar": "العنوان"
+  },
+  "orders.items": {
+    "en": "Items",
+    "ar": "المنتجات"
+  },
+  "orders.bostaTracking": {
+    "en": "Bosta Tracking:",
+    "ar": "تتبع بوستا:"
+  },
+  "orders.addTracking": {
+    "en": "Add tracking ID",
+    "ar": "أضف رقم التتبع"
+  },
+  "orders.sendToBosta": {
+    "en": "Send to Bosta",
+    "ar": "إرسال إلى بوستا"
+  },
+  "orders.cancelInBosta": {
+    "en": "Cancel in Bosta",
+    "ar": "إلغاء في بوستا"
+  },
+  "orders.deliveryCreated": {
+    "en": "Delivery created.",
+    "ar": "تم إنشاء الشحنة."
+  },
+  "orders.sentToBosta": {
+    "en": "Sent to Bosta",
+    "ar": "أُرسل إلى بوستا"
+  },
+  "orders.bostaCancelled": {
+    "en": "Bosta delivery cancelled",
+    "ar": "تم إلغاء شحنة بوستا"
+  },
+  "orders.requestSent": {
+    "en": "Request sent.",
+    "ar": "تم إرسال الطلب."
+  },
+  "orders.confirmDelete": {
+    "en": "Confirm delete?",
+    "ar": "تأكيد الحذف؟"
+  },
+  "orders.couldnStatus": {
+    "en": "Couldn't update status",
+    "ar": "تعذّر تحديث الحالة"
+  },
+  "orders.statusUpdated": {
+    "en": "Order status updated",
+    "ar": "تم تحديث حالة الطلب"
+  },
+  "orders.setTo": {
+    "en": "Set to {s}",
+    "ar": "تم التعيين إلى {s}"
+  },
+  "orders.couldnTracking": {
+    "en": "Couldn't update tracking",
+    "ar": "تعذّر تحديث التتبع"
+  },
+  "orders.trackingAdded": {
+    "en": "Tracking ID added",
+    "ar": "تمت إضافة رقم التتبع"
+  },
+  "orders.trackingRemoved": {
+    "en": "Tracking ID removed",
+    "ar": "تمت إزالة رقم التتبع"
+  },
+  "orders.couldnDelete": {
+    "en": "Couldn't delete order",
+    "ar": "تعذّر حذف الطلب"
+  },
+  "orders.deleted": {
+    "en": "Order deleted",
+    "ar": "تم حذف الطلب"
+  },
+  "orders.couldnBosta": {
+    "en": "Couldn't send to Bosta",
+    "ar": "تعذّر الإرسال إلى بوستا"
+  },
+  "orders.checkApiKey": {
+    "en": "Check the API key.",
+    "ar": "تحقق من مفتاح API."
+  },
+  "orders.couldnCancelBosta": {
+    "en": "Couldn't cancel in Bosta",
+    "ar": "تعذّر الإلغاء في بوستا"
+  },
+  "orders.wheelPrize": {
+    "en": "Wheel Prize: {label}",
+    "ar": "جائزة العجلة: {label}"
+  },
+  "orders.bosta": {
+    "en": "Bosta",
+    "ar": "بوستا"
+  },
+  "orders.whatsapp": {
+    "en": "WhatsApp",
+    "ar": "واتساب"
+  },
+  "om.newOrder": {
+    "en": "New Order",
+    "ar": "طلب جديد"
+  },
+  "om.edit": {
+    "en": "Edit #{id}",
+    "ar": "تعديل #{id}"
+  },
+  "om.customerName": {
+    "en": "Customer name *",
+    "ar": "اسم العميل *"
+  },
+  "om.phone": {
+    "en": "Phone *",
+    "ar": "الهاتف *"
+  },
+  "om.email": {
+    "en": "Email (optional)",
+    "ar": "البريد الإلكتروني (اختياري)"
+  },
+  "om.address": {
+    "en": "Address *",
+    "ar": "العنوان *"
+  },
+  "om.city": {
+    "en": "City *",
+    "ar": "المدينة *"
+  },
+  "om.items": {
+    "en": "Items *",
+    "ar": "المنتجات *"
+  },
+  "om.selectProduct": {
+    "en": "Select product",
+    "ar": "اختر منتجًا"
+  },
+  "om.inStock": {
+    "en": "({n} in stock)",
+    "ar": "({n} في المخزون)"
+  },
+  "om.onlyLeft": {
+    "en": "only {n} left",
+    "ar": "بقي {n} فقط"
+  },
+  "om.addProduct": {
+    "en": "Add product…",
+    "ar": "أضف منتجًا…"
+  },
+  "om.remove": {
+    "en": "Remove",
+    "ar": "إزالة"
+  },
+  "om.discount": {
+    "en": "Discount EGP",
+    "ar": "الخصم (EGP)"
+  },
+  "om.code": {
+    "en": "Code",
+    "ar": "الكود"
+  },
+  "om.label": {
+    "en": "Label",
+    "ar": "التسمية"
+  },
+  "om.sendToBosta": {
+    "en": "Send to Bosta for delivery",
+    "ar": "إرسال إلى بوستا للتوصيل"
+  },
+  "om.createOrder": {
+    "en": "Create order",
+    "ar": "إنشاء الطلب"
+  },
+  "om.saveChanges": {
+    "en": "Save changes",
+    "ar": "حفظ التغييرات"
+  },
+  "om.couldnSave": {
+    "en": "Couldn't save order",
+    "ar": "تعذّر حفظ الطلب"
+  },
+  "om.created": {
+    "en": "Order created",
+    "ar": "تم إنشاء الطلب"
+  },
+  "om.updated": {
+    "en": "Order updated",
+    "ar": "تم تحديث الطلب"
+  },
+  "om.bostaSkipped": {
+    "en": "Bosta skipped",
+    "ar": "تم تخطي بوستا"
+  },
+  "om.tracking": {
+    "en": "Tracking {n}",
+    "ar": "رقم التتبع {n}"
+  },
+  "pr.title": {
+    "en": "Products",
+    "ar": "المنتجات"
+  },
+  "pr.total": {
+    "en": "{n} total",
+    "ar": "الإجمالي {n}"
+  },
+  "pr.add": {
+    "en": "Add Product",
+    "ar": "إضافة منتج"
+  },
+  "pr.none": {
+    "en": "No products yet — add your first one above.",
+    "ar": "لا توجد منتجات بعد — أضف أول منتج بالأعلى."
+  },
+  "pr.editTitle": {
+    "en": "Edit Product",
+    "ar": "تعديل المنتج"
+  },
+  "pr.addTitle": {
+    "en": "Add a New Product",
+    "ar": "إضافة منتج جديد"
+  },
+  "pr.editSubtitle": {
+    "en": "Update the product details below.",
+    "ar": "حدّث تفاصيل المنتج بالأسفل."
+  },
+  "pr.addSubtitle": {
+    "en": "Fill in the details to add a new product.",
+    "ar": "املأ التفاصيل لإضافة منتج جديد."
+  },
+  "pr.name": {
+    "en": "Product name",
+    "ar": "اسم المنتج"
+  },
+  "pr.nameAr": {
+    "en": "Product name (Arabic)",
+    "ar": "اسم المنتج (بالعربية)"
+  },
+  "pr.namePlaceholder": {
+    "en": "e.g. Pro Dual Boiler Machine",
+    "ar": "مثال: ماكينة إسبريسو احترافية"
+  },
+  "pr.slug": {
+    "en": "URL slug",
+    "ar": "رابط المنتج"
+  },
+  "pr.slugPlaceholder": {
+    "en": "auto-generated-from-name",
+    "ar": "يُنشأ تلقائيًا من الاسم"
+  },
+  "pr.category": {
+    "en": "Category",
+    "ar": "الفئة"
+  },
+  "pr.catMachines": {
+    "en": "Machines",
+    "ar": "ماكينات"
+  },
+  "pr.catGrinders": {
+    "en": "Grinders",
+    "ar": "طواحين"
+  },
+  "pr.catBeans": {
+    "en": "Beans",
+    "ar": "حبوب"
+  },
+  "pr.catCoffee": {
+    "en": "Coffee",
+    "ar": "قهوة"
+  },
+  "pr.catAccessories": {
+    "en": "Accessories",
+    "ar": "إكسسوارات"
+  },
+  "pr.price": {
+    "en": "Price (EGP)",
+    "ar": "السعر (EGP)"
+  },
+  "pr.originalPrice": {
+    "en": "Original Price (optional)",
+    "ar": "السعر الأصلي (اختياري)"
+  },
+  "pr.originalPlaceholder": {
+    "en": "Leave empty for no discount",
+    "ar": "اتركه فارغًا إن لم يكن هناك خصم"
+  },
+  "pr.stock": {
+    "en": "Stock",
+    "ar": "المخزون"
+  },
+  "pr.description": {
+    "en": "Description",
+    "ar": "الوصف"
+  },
+  "pr.descriptionAr": {
+    "en": "Description (Arabic)",
+    "ar": "الوصف (بالعربية)"
+  },
+  "pr.descPlaceholder": {
+    "en": "What makes this product worth buying?",
+    "ar": "ما الذي يجعل هذا المنتج يستحق الشراء؟"
+  },
+  "pr.update": {
+    "en": "Update Product",
+    "ar": "تحديث المنتج"
+  },
+  "pr.image": {
+    "en": "Product Image",
+    "ar": "صورة المنتج"
+  },
+  "pr.uploading": {
+    "en": "Uploading…",
+    "ar": "جارٍ الرفع…"
+  },
+  "pr.replace": {
+    "en": "Replace",
+    "ar": "استبدال"
+  },
+  "pr.remove": {
+    "en": "Remove",
+    "ar": "إزالة"
+  },
+  "pr.clickOrDrag": {
+    "en": "Click or drag an image here",
+    "ar": "اضغط أو اسحب صورة هنا"
+  },
+  "pr.orPaste": {
+    "en": "or paste URL",
+    "ar": "أو الصق رابطًا"
+  },
+  "pr.extraImages": {
+    "en": "Additional Images ({n})",
+    "ar": "صور إضافية ({n})"
+  },
+  "pr.addImage": {
+    "en": "+ Add Image",
+    "ar": "+ إضافة صورة"
+  },
+  "pr.uploadFailed": {
+    "en": "Upload failed",
+    "ar": "فشل الرفع"
+  },
+  "pr.uploadFailedMsg": {
+    "en": "Couldn't upload the image. Please try again.",
+    "ar": "تعذّر رفع الصورة. حاول مرة أخرى."
+  },
+  "pr.updated": {
+    "en": "Product updated",
+    "ar": "تم تحديث المنتج"
+  },
+  "pr.added": {
+    "en": "Product added",
+    "ar": "تمت إضافة المنتج"
+  },
+  "pr.couldnSave": {
+    "en": "Couldn't save product",
+    "ar": "تعذّر حفظ المنتج"
+  },
+  "pr.checkSlug": {
+    "en": "Check that the slug is unique.",
+    "ar": "تأكد أن رابط المنتج فريد."
+  },
+  "pr.deleted": {
+    "en": "Product deleted",
+    "ar": "تم حذف المنتج"
+  },
+  "pr.deleteTitle": {
+    "en": "Delete product",
+    "ar": "حذف المنتج"
+  },
+  "pr.deleteSubtitle": {
+    "en": "\"{name}\" will be permanently removed. This can't be undone.",
+    "ar": "سيتم حذف \"{name}\" نهائيًا. لا يمكن التراجع."
+  },
+  "pr.confirmDelete": {
+    "en": "Are you sure you want to delete this product?",
+    "ar": "هل أنت متأكد من حذف هذا المنتج؟"
+  },
+  "wh.title": {
+    "en": "Wheel of Fortune",
+    "ar": "عجلة الحظ"
+  },
+  "wh.count": {
+    "en": "{n} prizes · {m} active",
+    "ar": "{n} جوائز · {m} مفعّلة"
+  },
+  "wh.add": {
+    "en": "Add Prize",
+    "ar": "إضافة جائزة"
+  },
+  "wh.weight": {
+    "en": "weight: {n}",
+    "ar": "الوزن: {n}"
+  },
+  "wh.none": {
+    "en": "No prizes yet — add your first one above.",
+    "ar": "لا توجد جوائز بعد — أضف أول جائزة بالأعلى."
+  },
+  "wh.preview": {
+    "en": "Wheel Preview",
+    "ar": "معاينة العجلة"
+  },
+  "wh.noPreview": {
+    "en": "Add active prizes to preview",
+    "ar": "أضف جوائز مفعّلة للمعاينة"
+  },
+  "wh.editTitle": {
+    "en": "Edit Prize",
+    "ar": "تعديل الجائزة"
+  },
+  "wh.addTitle": {
+    "en": "Add a Prize",
+    "ar": "إضافة جائزة"
+  },
+  "wh.editSubtitle": {
+    "en": "Update the prize details below.",
+    "ar": "حدّث تفاصيل الجائزة بالأسفل."
+  },
+  "wh.addSubtitle": {
+    "en": "Create a new prize for the wheel.",
+    "ar": "أنشئ جائزة جديدة للعجلة."
+  },
+  "wh.label": {
+    "en": "Label (shown on wheel)",
+    "ar": "التسمية (تظهر على العجلة)"
+  },
+  "wh.labelAr": {
+    "en": "Label (Arabic)",
+    "ar": "التسمية (بالعربية)"
+  },
+  "wh.labelPlaceholder": {
+    "en": "e.g. 10% OFF",
+    "ar": "مثال: خصم 10%"
+  },
+  "wh.code": {
+    "en": "Discount Code",
+    "ar": "كود الخصم"
+  },
+  "wh.codePlaceholder": {
+    "en": "e.g. SAVE10",
+    "ar": "مثال: SAVE10"
+  },
+  "wh.color": {
+    "en": "Color",
+    "ar": "اللون"
+  },
+  "wh.weightLabel": {
+    "en": "Weight (higher = more likely)",
+    "ar": "الوزن (الأعلى = الأكثر احتمالية)"
+  },
+  "wh.update": {
+    "en": "Update Prize",
+    "ar": "تحديث الجائزة"
+  },
+  "wh.updated": {
+    "en": "Prize updated",
+    "ar": "تم تحديث الجائزة"
+  },
+  "wh.added": {
+    "en": "Prize added",
+    "ar": "تمت إضافة الجائزة"
+  },
+  "wh.couldnSave": {
+    "en": "Couldn't save prize",
+    "ar": "تعذّر حفظ الجائزة"
+  },
+  "wh.deleted": {
+    "en": "Prize deleted",
+    "ar": "تم حذف الجائزة"
+  },
+  "wh.deactivated": {
+    "en": "Prize deactivated",
+    "ar": "تم إلغاء تفعيل الجائزة"
+  },
+  "wh.activated": {
+    "en": "Prize activated",
+    "ar": "تم تفعيل الجائزة"
+  },
+  "wh.deleteTitle": {
+    "en": "Delete prize",
+    "ar": "حذف الجائزة"
+  },
+  "wh.deleteSubtitle": {
+    "en": "\"{label}\" will be permanently removed. This can't be undone.",
+    "ar": "سيتم حذف \"{label}\" نهائيًا. لا يمكن التراجع."
+  },
+  "wh.confirmDelete": {
+    "en": "Are you sure you want to delete this prize?",
+    "ar": "هل أنت متأكد من حذف هذه الجائزة؟"
+  },
+  "st.title": {
+    "en": "Settings",
+    "ar": "الإعدادات"
+  },
+  "st.subtitle": {
+    "en": "Notification email preferences",
+    "ar": "تفضيلات بريد الإشعارات"
+  },
+  "st.adminEmail": {
+    "en": "Admin email",
+    "ar": "بريد الأدمن الإلكتروني"
+  },
+  "st.adminEmailDesc": {
+    "en": "All admin notification emails (new orders, test notifications, delivery updates) are sent to this address.",
+    "ar": "تُرسل جميع رسائل إشعارات الأدمن (طلبات جديدة، إشعارات تجريبية، تحديثات التوصيل) إلى هذا العنوان."
+  },
+  "st.emailAddress": {
+    "en": "Email address",
+    "ar": "عنوان البريد الإلكتروني"
+  },
+  "st.emailPlaceholder": {
+    "en": "admin@example.com",
+    "ar": "admin@example.com"
+  },
+  "st.leaveEmpty": {
+    "en": "Leave empty to disable admin email notifications.",
+    "ar": "اتركه فارغًا لتعطيل إشعارات البريد للأدمن."
+  },
+  "st.testTitle": {
+    "en": "Test notifications",
+    "ar": "إشعارات تجريبية"
+  },
+  "st.testDesc": {
+    "en": "Send a test email to confirm everything is configured correctly.",
+    "ar": "أرسل بريدًا تجريبيًا للتأكد من أن كل شيء مُعدّ بشكل صحيح."
+  },
+  "st.sending": {
+    "en": "Sending…",
+    "ar": "جارٍ الإرسال…"
+  },
+  "st.sendTest": {
+    "en": "Send test email",
+    "ar": "إرسال بريد تجريبي"
+  },
+  "st.saved": {
+    "en": "Settings saved",
+    "ar": "تم حفظ الإعدادات"
+  },
+  "st.emailsTo": {
+    "en": "Admin emails will be sent to {email}",
+    "ar": "ستُرسل رسائل الأدمن إلى {email}"
+  },
+  "st.emailsOff": {
+    "en": "Admin email cleared — new-order emails are off.",
+    "ar": "تم مسح بريد الأدمن — رسائل الطلبات الجديدة متوقفة."
+  },
+  "st.couldnSave": {
+    "en": "Couldn't save settings",
+    "ar": "تعذّر حفظ الإعدادات"
+  },
+  "st.testSent": {
+    "en": "Test email sent",
+    "ar": "تم إرسال البريد التجريبي"
+  },
+  "st.checkInbox": {
+    "en": "Check the inbox of {email}.",
+    "ar": "تحقق من صندوق الوارد لـ {email}."
+  },
+  "st.testFailed": {
+    "en": "Test email not sent",
+    "ar": "لم يتم إرسال البريد التجريبي"
+  },
+  "st.noSmtp": {
+    "en": "No SMTP configured yet.",
+    "ar": "لا يوجد SMTP مُعدّ بعد."
+  },
+  "push.enabled": {
+    "en": "Alerts enabled",
+    "ar": "تم تفعيل التنبيهات"
+  },
+  "push.enabledMsg": {
+    "en": "You'll get a notification here for every new order.",
+    "ar": "ستصلك إشعارات هنا لكل طلب جديد."
+  },
+  "push.couldnEnable": {
+    "en": "Couldn't enable alerts",
+    "ar": "تعذّر تفعيل التنبيهات"
+  },
+  "push.noVapid": {
+    "en": "VAPID keys are missing in .env.",
+    "ar": "مفاتيح VAPID غير موجودة في .env."
+  },
+  "push.permission": {
+    "en": "Check the browser permission or VAPID keys.",
+    "ar": "تحقق من صلاحيات المتصفح أو مفاتيح VAPID."
+  },
+  "push.disabled": {
+    "en": "Alerts disabled",
+    "ar": "تم إيقاف التنبيهات"
+  },
+  "push.disabledMsg": {
+    "en": "You'll stop getting alerts on this device.",
+    "ar": "ستتوقف التنبيهات على هذا الجهاز."
+  },
+  "push.couldnDisable": {
+    "en": "Couldn't disable alerts",
+    "ar": "تعذّر إيقاف التنبيهات"
+  },
+  "push.on": {
+    "en": "Alerts On",
+    "ar": "التنبيهات مفعّلة"
+  },
+  "push.enable": {
+    "en": "Enable Alerts",
+    "ar": "تفعيل التنبيهات"
+  },
+  "push.iosHint": {
+    "en": "For alerts on iPhone: open in Safari → Share → \"Add to Home Screen\", then enable alerts above.",
+    "ar": "للتنبيهات على الآيفون: افتح في سفاري ← مشاركة ← \"أضف إلى الشاشة الرئيسية\"، ثم فعّل التنبيهات بالأعلى."
+  },
+  "sound.on": {
+    "en": "Sound On",
+    "ar": "الصوت مفعّل"
+  },
+  "sound.off": {
+    "en": "Sound Off",
+    "ar": "الصوت مكتوم"
+  },
+  "sound.onTitle": {
+    "en": "Order sound on",
+    "ar": "صوت الطلبات مفعّل"
+  },
+  "sound.offTitle": {
+    "en": "Order sound off",
+    "ar": "صوت الطلبات مكتوم"
+  },
+  "sound.newOrder": {
+    "en": "New order #{id}",
+    "ar": "طلب جديد #{id}"
+  },
+  "nav.logout": {
+    "en": "Logout",
+    "ar": "تسجيل الخروج"
+  },
+  "login.email": {
+    "en": "Email",
+    "ar": "البريد الإلكتروني"
+  },
+  "login.emailPlaceholder": {
+    "en": "admin@yourshop.com",
+    "ar": "admin@yourshop.com"
+  },
+  "login.incorrectCredentials": {
+    "en": "Incorrect email or password",
+    "ar": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
+  },
+  "login.tooManyAttempts": {
+    "en": "Too many attempts. Try again later.",
+    "ar": "محاولات كثيرة. حاول مرة أخرى لاحقًا"
+  },
+  "st.account": {
+    "en": "Account",
+    "ar": "الحساب"
+  },
+  "st.signInEmail": {
+    "en": "Sign-in email (Supabase Auth)",
+    "ar": "البريد الإلكتروني لتسجيل الدخول"
+  },
+  "st.changePassword": {
+    "en": "Change password",
+    "ar": "تغيير كلمة المرور"
+  },
+  "st.changePasswordDesc": {
+    "en": "Update the password used to sign in to this dashboard.",
+    "ar": "قم بتحديث كلمة المرور المستخدمة لتسجيل الدخول إلى لوحة التحكم."
+  },
+  "st.currentPassword": {
+    "en": "Current password",
+    "ar": "كلمة المرور الحالية"
+  },
+  "st.newPassword": {
+    "en": "New password (min 8 characters)",
+    "ar": "كلمة المرور الجديدة (8 أحرف على الأقل)"
+  },
+  "st.confirmPassword": {
+    "en": "Confirm new password",
+    "ar": "تأكيد كلمة المرور الجديدة"
+  },
+  "st.updatePassword": {
+    "en": "Update password",
+    "ar": "تحديث كلمة المرور"
+  },
+  "st.updating": {
+    "en": "Updating…",
+    "ar": "جارٍ التحديث…"
+  },
+  "st.passwordChanged": {
+    "en": "Password updated",
+    "ar": "تم تحديث كلمة المرور"
+  },
+  "st.passwordChangedMsg": {
+    "en": "Use your new password next time you sign in.",
+    "ar": "استخدم كلمة المرور الجديدة في المرة القادمة."
+  },
+  "st.passwordTooShort": {
+    "en": "Password too short",
+    "ar": "كلمة المرور قصيرة جدًا"
+  },
+  "st.passwordsDontMatch": {
+    "en": "Passwords don't match",
+    "ar": "كلمتا المرور غير متطابقتين"
+  }
+}
