@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A2018"/>
+      <stop offset="1" stop-color="#141009"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#g)"/>
+  <circle cx="300" cy="280" r="130" fill="#3B2E20"/>
+  <ellipse cx="300" cy="255" rx="100" ry="28" fill="#5A4528"/>
+  <path d="M225 255 L230 355 Q300 395 370 355 L375 255 Z" fill="#141009"/>
+  <path d="M375 272 q48 0 48 32 q0 38 -48 40" fill="none" stroke="#141009" stroke-width="20"/>
+  <ellipse cx="300" cy="255" rx="84" ry="21" fill="#C6A05C"/>
+  <ellipse cx="300" cy="255" rx="60" ry="14" fill="#6B4F28"/>
+  <path d="M258 310 q42 26 84 0" stroke="#E9DCC3" stroke-width="3" fill="none" opacity="0.5"/>
+  <text x="300" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#E9DCC3" font-weight="bold">Signature Blend</text>
+  <text x="300" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#A0907F">House Espresso</text>
+</svg>
