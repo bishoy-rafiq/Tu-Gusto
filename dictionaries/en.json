@@ -223,5 +223,9 @@
       "body": "Your Coffee. Your Rules. Always Tu Relax, Tu Gusto."
     },
     "tagline": "TU GUSTO — Driven by Passion. Crafted to Your Taste."
+  },
+  "whatsapp": {
+    "floatLabel": "Chat with us on WhatsApp",
+    "message": "Hi Tu Gusto! I have a question."
   }
 }

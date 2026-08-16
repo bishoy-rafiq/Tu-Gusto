@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { getDictionary, type Locale } from "@/lib/dictionaries";
 import { notFound } from "next/navigation";
 import WheelPopup from "@/components/WheelPopup";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
@@ -74,6 +75,7 @@ export default async function LocaleLayout({
         </main>
 
         <WheelPopup />
+        <WhatsAppFloat locale={locale} />
         <Footer locale={locale} dict={dict} />
         </CartProvider>
       </ToastProvider>
