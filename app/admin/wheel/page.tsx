@@ -112,7 +112,7 @@ export default function AdminWheelPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <div>
           <h1 className="font-display text-3xl text-brand-tan">{t("wh.title")}</h1>
           <p className="text-sm text-brand-tan/50 mt-0.5">{t("wh.count").replace("{n}", prizes.length.toString()).replace("{m}", activePrizes.length.toString())}</p>
@@ -130,19 +130,21 @@ export default function AdminWheelPage() {
         <div>
           <div className="space-y-3">
             {prizes.map((p) => (
-              <div key={p.id} className={`flex items-center gap-4 bg-card border border-white/[0.08] rounded-xl p-4 transition-all hover:border-brand-rust/20 ${!p.active ? "opacity-50" : ""}`}>
+              <div key={p.id} className={`flex flex-wrap items-center gap-x-4 gap-y-3 bg-card border border-white/[0.08] rounded-xl p-4 transition-all hover:border-brand-rust/20 ${!p.active ? "opacity-50" : ""}`}>
                 <div className="w-10 h-10 rounded-lg flex-shrink-0" style={{ backgroundColor: p.color }} />
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-[130px]">
                   <p className="font-medium text-brand-tan">{p.label}</p>
                   {p.labelAr && <p dir="rtl" className="text-sm text-brand-tan/50">{p.labelAr}</p>}
                   <p className="text-sm text-brand-tan/50 font-mono">{p.code} · {t("wh.weight").replace("{n}", p.weight.toString())}</p>
                 </div>
-                <button onClick={() => toggleActive(p.id, p.active)}
-                  className={`text-xs font-medium px-3 py-1 rounded-full transition-colors ${p.active ? "bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25" : "bg-white/[0.08] text-muted hover:bg-white/[0.15]"}`}>
-                  {p.active ? t("common.active") : t("common.inactive")}
-                </button>
-                <button onClick={() => startEdit(p)} className="text-brand-rust text-sm font-medium hover:underline">{t("common.edit")}</button>
-                <button onClick={() => setDeleteTarget(p)} className="text-red-400 text-sm font-medium hover:underline">{t("common.delete")}</button>
+                <div className="flex items-center gap-3 w-full sm:w-auto sm:ml-auto">
+                  <button onClick={() => toggleActive(p.id, p.active)}
+                    className={`text-xs font-medium px-3 py-1 rounded-full transition-colors ${p.active ? "bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25" : "bg-white/[0.08] text-muted hover:bg-white/[0.15]"}`}>
+                    {p.active ? t("common.active") : t("common.inactive")}
+                  </button>
+                  <button onClick={() => startEdit(p)} className="text-brand-rust text-sm font-medium hover:underline">{t("common.edit")}</button>
+                  <button onClick={() => setDeleteTarget(p)} className="text-red-400 text-sm font-medium hover:underline">{t("common.delete")}</button>
+                </div>
               </div>
             ))}
           </div>
@@ -157,7 +159,7 @@ export default function AdminWheelPage() {
           <div className="bg-card border border-white/[0.08] rounded-2xl p-5 shadow-lg shadow-black/20 text-center">
             <h3 className="text-sm font-medium text-brand-tan/60 mb-3">{t("wh.preview")}</h3>
             {activePrizes.length > 0 ? (
-              <svg width="260" height="260" viewBox="0 0 260 260" className="mx-auto">
+              <svg width="260" height="260" viewBox="0 0 260 260" className="mx-auto w-full max-w-[260px] h-auto">
                 <circle cx="130" cy="130" r="124" fill="#141009" />
                 <circle cx="130" cy="130" r="120" fill="none" stroke="#C6A05C" strokeWidth="1.5" strokeDasharray="6 3" />
                 {activePrizes.map((prize, i) => {
@@ -192,7 +194,7 @@ export default function AdminWheelPage() {
                 <circle cx="130" cy="130" r="6" fill="#C6A05C" />
               </svg>
             ) : (
-              <div className="w-[260px] h-[260px] rounded-full bg-surface mx-auto flex items-center justify-center text-muted text-sm">
+              <div className="w-full max-w-[260px] h-[260px] rounded-full bg-surface mx-auto flex items-center justify-center text-muted text-sm">
                 {t("wh.noPreview")}
               </div>
             )}

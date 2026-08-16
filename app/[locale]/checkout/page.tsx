@@ -198,7 +198,7 @@ export default function CheckoutPage() {
       {/* Header */}
       <section className="relative overflow-hidden pt-32 pb-12 md:pt-32 md:pb-16 bg-espresso">
         <div className="absolute top-0 left-1/4 w-[350px] h-[350px] rounded-full bg-caramel/[0.05] -translate-y-1/2 blur-[70px] pointer-events-none" />
-        <div className="max-w-5xl  mx-auto relative z-10">
+        <div className="max-w-5xl  mx-auto px-section-x relative z-10">
           <div className="divider mb-2 animate-reveal" />
           <span className="text-brand-rust text-[11px] font-semibold tracking-[0.28em] uppercase mb-4 block animate-reveal">
             {locale === "ar" ? "إتمام الطلب" : "Checkout"}
