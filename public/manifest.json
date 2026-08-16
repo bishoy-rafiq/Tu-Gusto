@@ -2,7 +2,7 @@
   "name": "Tu Gusto — على مزاجك",
   "short_name": "Tu Gusto",
   "description": "Premium espresso machines, grinders, and beans.",
-  "start_url": "/",
+  "start_url": "/admin",
   "display": "standalone",
   "background_color": "#141009",
   "theme_color": "#141009",
