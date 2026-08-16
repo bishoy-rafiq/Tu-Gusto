@@ -1,5 +1,5 @@
 let ctx: AudioContext | null = null;
-let buffer: AudioBuffer | null = null;
+let bufferPromise: Promise<AudioBuffer | null> | null = null;
 const SOUND_URL = "/sounds/order-chime.mp3";
 
 function getCtx(): AudioContext | null {
@@ -10,37 +10,58 @@ function getCtx(): AudioContext | null {
   return ctx;
 }
 
-function unlock() {
+async function unlock() {
   const c = getCtx();
-  if (c && c.state === "suspended") c.resume();
+  if (!c) return;
+  if (c.state === "suspended") {
+    try {
+      await c.resume();
+    } catch {}
+  }
+  // Warm up the decoded buffer on the first interaction so playback is instant.
+  if (!bufferPromise) {
+    bufferPromise = (async () => {
+      try {
+        const res = await fetch(SOUND_URL);
+        if (!res.ok) return null;
+        const data = await res.arrayBuffer();
+        return await c.decodeAudioData(data);
+      } catch {
+        return null;
+      }
+    })();
+  }
 }
 
 if (typeof window !== "undefined") {
-  window.addEventListener("pointerdown", unlock, { once: true });
-  window.addEventListener("keydown", unlock, { once: true });
-  window.addEventListener("touchstart", unlock, { once: true });
+  window.addEventListener("pointerdown", unlock);
+  window.addEventListener("keydown", unlock);
+  window.addEventListener("touchstart", unlock);
 }
 
 async function loadChime(): Promise<AudioBuffer | null> {
-  if (buffer) return buffer;
-  const c = getCtx();
-  if (!c) return null;
-  try {
-    const res = await fetch(SOUND_URL);
-    if (!res.ok) return null;
-    const data = await res.arrayBuffer();
-    buffer = await c.decodeAudioData(data);
-  } catch {
-    buffer = null;
+  if (!bufferPromise) {
+    const c = getCtx();
+    if (!c) return null;
+    bufferPromise = (async () => {
+      try {
+        const res = await fetch(SOUND_URL);
+        if (!res.ok) return null;
+        const data = await res.arrayBuffer();
+        return await c.decodeAudioData(data);
+      } catch {
+        return null;
+      }
+    })();
   }
-  return buffer;
+  return bufferPromise;
 }
 
 export async function playOrderSound() {
   try {
     const c = getCtx();
     if (!c) return;
-    if (c.state === "suspended") c.resume();
+    if (c.state === "suspended") await c.resume();
     const buf = await loadChime();
     if (!buf) return;
     const src = c.createBufferSource();
