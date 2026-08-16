@@ -1086,5 +1086,13 @@
   "st.passwordsDontMatch": {
     "en": "Passwords don't match",
     "ar": "كلمتا المرور غير متطابقتين"
+  },
+  "push.iosTitle": {
+    "en": "Add to Home Screen first",
+    "ar": "أضف الموقع للشاشة الرئيسية أولاً"
+  },
+  "push.iosRequires": {
+    "en": "iPhone alerts need iOS 16.4+ and the site added to your Home Screen.",
+    "ar": "تنبيهات الآيفون تتطلب iOS 16.4+ وإضافة الموقع إلى الشاشة الرئيسية."
   }
 }

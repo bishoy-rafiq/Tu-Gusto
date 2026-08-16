@@ -9,6 +9,11 @@ function isIOS(): boolean {
   return /iPhone|iPad|iPod/.test(navigator.userAgent);
 }
 
+function isStandalone(): boolean {
+  return !!((window.navigator as any).standalone) ||
+    window.matchMedia("(display-mode: standalone)").matches;
+}
+
 export default function PushAlertsButton() {
   const { toast } = useToast();
   const { t } = useAdminI18n();
@@ -17,18 +22,18 @@ export default function PushAlertsButton() {
   const [busy, setBusy] = useState(false);
   const [iosStandalone, setIosStandalone] = useState(false);
 
+  const ios = isIOS();
+  const pushApiAvailable = typeof window !== "undefined" && "PushManager" in window;
+
   useEffect(() => {
-    if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+    if (!("serviceWorker" in navigator)) {
       setSupported(false);
       return;
     }
     setSupported(true);
 
     if (isIOS()) {
-      setIosStandalone(
-        !!(window.navigator as any).standalone ||
-        window.matchMedia("(display-mode: standalone)").matches
-      );
+      setIosStandalone(isStandalone());
     }
 
     navigator.serviceWorker.ready
@@ -38,6 +43,17 @@ export default function PushAlertsButton() {
   }, []);
 
   const subscribe = useCallback(async () => {
+    if (isIOS()) {
+      if (!("PushManager" in window)) {
+        toast("info", t("push.iosTitle"), t("push.iosRequires"));
+        return;
+      }
+      if (!isStandalone()) {
+        toast("info", t("push.iosTitle"), t("push.iosHint"));
+        return;
+      }
+    }
+
     setBusy(true);
     try {
       const reg = await navigator.serviceWorker.ready;
@@ -99,6 +115,8 @@ export default function PushAlertsButton() {
   }
   if (!supported) return null;
 
+  const needsIosSetup = ios && (!pushApiAvailable || !iosStandalone);
+
   return (
     <div className="flex flex-col gap-1.5">
       <button
@@ -120,9 +138,11 @@ export default function PushAlertsButton() {
         {subscribed ? t("push.on") : t("push.enable")}
       </button>
 
-      {isIOS() && !iosStandalone && !subscribed && (
+      {needsIosSetup && (
         <span className="text-[11px] text-muted max-w-[240px] leading-snug">
-          {t("push.iosHint")}
+          {pushApiAvailable
+            ? t("push.iosHint")
+            : t("push.iosRequires")}
         </span>
       )}
     </div>
