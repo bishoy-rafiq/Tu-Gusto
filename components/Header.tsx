@@ -136,6 +136,8 @@ export default function Header({
           </nav>
 
           <div className="flex items-center gap-2">
+            <LanguageSwitcher locale={locale as "en" | "ar"} scrolled={scrolled} />
+
             <button
               onClick={openCart}
               aria-label={dict.cart.cart}
@@ -155,8 +157,6 @@ export default function Header({
                 </span>
               )}
             </button>
-
-            <LanguageSwitcher locale={locale as "en" | "ar"} scrolled={scrolled} />
 
             {/* Mobile menu toggle */}
             <button
