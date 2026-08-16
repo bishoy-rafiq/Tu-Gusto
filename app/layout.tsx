@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Cairo } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], weight: ["400", "600", "900"], style: ["normal", "italic"] });
+const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], weight: ["400", "600"], style: ["normal", "italic"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const cairo = Cairo({ variable: "--font-cairo", subsets: ["arabic", "latin"], weight: ["400", "600", "900"] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -94,7 +93,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         name: "Tu Gusto",
         alternateName: "Tu Gusto — على مزاجك",
         url: siteUrl,
-        logo: { "@type": "ImageObject", url: `${siteUrl}/images/logo.png` },
+        logo: { "@type": "ImageObject", url: `${siteUrl}/images/logo.webp` },
         image: `${siteUrl}/icon-512.png`,
         sameAs: ["https://www.instagram.com/tugusto755/"],
         contactPoint: {
@@ -117,7 +116,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${cairo.variable}`} suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="antialiased">
         <script
           type="application/ld+json"

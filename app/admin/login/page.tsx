@@ -48,7 +48,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="w-24 mx-auto mb-4">
-            <img src="/images/logo.png" alt="Tu Gusto" className="w-full h-auto object-contain" />
+            <img src="/images/logo.webp" alt="Tu Gusto" className="w-full h-auto object-contain" />
           </div>
           <p className="text-muted text-sm mt-1.5">{t("login.subtitle")}</p>
         </div>

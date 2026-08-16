@@ -96,7 +96,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
         <div className="px-5 pt-7 pb-5">
           <Link href="/admin" className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center p-1">
-              <img src="/images/logo-dark.png" alt="Tu Gusto" className="w-full h-full object-contain" />
+              <img src="/images/logo-dark.webp" alt="Tu Gusto" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="font-display text-[15px] font-semibold text-white tracking-tight block leading-tight">
@@ -145,7 +145,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
           <div className="px-5 pt-7 pb-5 flex items-center justify-between">
             <Link href="/admin" className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center p-1">
-                <img src="/images/logo-dark.png" alt="Tu Gusto" className="w-full h-full object-contain" />
+                <img src="/images/logo-dark.webp" alt="Tu Gusto" className="w-full h-full object-contain" />
               </div>
               <div>
                 <span className="font-display text-[15px] font-semibold text-white tracking-tight block leading-tight">

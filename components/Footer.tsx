@@ -46,7 +46,7 @@ export default function Footer({
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-5">
-            <img src="/images/logo.png" alt={dict.brand} className="h-10 w-auto object-contain" />
+            <img src="/images/logo.webp" alt={dict.brand} className="h-10 w-auto object-contain" />
             <p className="text-muted/60 mt-5 text-sm leading-relaxed max-w-xs">{dict.footer}</p>
             <div className="flex items-center gap-2.5 mt-6">
               {socials.map((s) => (

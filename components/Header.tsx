@@ -103,7 +103,7 @@ export default function Header({
             aria-label={dict.brand}
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt={dict.brand}
               className={`h-9 md:h-11 w-auto object-contain transition-all duration-500 ${
                 scrolled ? "opacity-95" : "opacity-100"
@@ -193,7 +193,7 @@ export default function Header({
         >
           <div className="p-4 border-b border-[var(--border-subtle)]/50 flex items-center justify-between flex-shrink-0">
             <Link href={`/${locale}`} onClick={closeAll} className="block">
-              <img src="/images/logo.png" alt={dict.brand} className="h-9 w-auto object-contain" />
+              <img src="/images/logo.webp" alt={dict.brand} className="h-9 w-auto object-contain" />
             </Link>
             <button
               onClick={closeAll}
