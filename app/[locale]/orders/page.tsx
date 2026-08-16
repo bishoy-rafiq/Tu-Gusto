@@ -41,7 +41,7 @@ export default function FindOrderPage() {
 
   return (
     <main className="min-h-screen">
-      <section className="bg-espresso pt-28 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
+      <section className="bg-espresso pt-32 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-caramel/[0.05] -translate-y-1/2 blur-[70px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-section-x relative z-10">
           <div className="divider mb-2" />

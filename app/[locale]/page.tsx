@@ -66,7 +66,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <main>
       {/* ═══════ HERO ═══════ */}
-      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-espresso">
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-espresso pt-20 md:pt-24">
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-20"
           autoPlay

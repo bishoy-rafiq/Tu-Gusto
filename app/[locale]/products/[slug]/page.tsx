@@ -188,7 +188,7 @@ export default async function ProductPage({
           }),
         }}
       />
-      <section className="relative pt-24 pb-20 md:pt-32 px-section-x overflow-hidden">
+      <section className="relative pt-32 pb-20 md:pt-36 px-section-x overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-caramel/[0.03] -translate-y-1/4 translate-x-1/4 blur-[90px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-rust/[0.02] translate-y-1/4 -translate-x-1/4 blur-[70px] pointer-events-none" />
 

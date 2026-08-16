@@ -61,7 +61,7 @@ export default function CartPage() {
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <section className="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-brand-warm">
+      <section className="relative overflow-hidden pt-32 pb-12 md:pt-32 md:pb-16 bg-brand-warm">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-caramel/[0.025] -translate-y-1/3 translate-x-1/3 blur-[70px] pointer-events-none" />
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="divider mb-2 animate-reveal" />

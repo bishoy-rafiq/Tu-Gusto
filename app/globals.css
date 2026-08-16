@@ -66,7 +66,7 @@
 
   /* ── Spacing ── */
   --spacing-section: clamp(3.5rem, 7vw, 7rem);
-  --spacing-section-x: clamp(1rem, 4vw, 3rem);
+  --spacing-section-x: clamp(1.25rem, 5vw, 3rem);
   --spacing-section-sm: clamp(2.5rem, 5vw, 5rem);
 
   /* ── Animations ── */

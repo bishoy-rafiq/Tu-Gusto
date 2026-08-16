@@ -246,7 +246,7 @@ function StatCard({
   glow?: boolean;
 }) {
   return (
-    <div className={`relative bg-card rounded-2xl p-5 border border-white/[0.06] overflow-hidden transition-all hover:border-brand-rust/25 hover:-translate-y-1 group ${glow ? "hover:glow-gold" : ""}`}>
+    <div className={`relative bg-card rounded-2xl p-4 md:p-5 border border-white/[0.06] overflow-hidden transition-all hover:border-brand-rust/25 hover:-translate-y-1 group ${glow ? "hover:glow-gold" : ""}`}>
       <div className={`absolute inset-0 bg-gradient-to-br ${accent} opacity-60 pointer-events-none`} />
       <div className="relative flex items-start justify-between mb-3">
         <span className={`w-10 h-10 rounded-xl glass-chip flex items-center justify-center shadow-sm ${iconColor} group-hover:scale-110 transition-transform`}>
@@ -258,8 +258,8 @@ function StatCard({
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_12px_rgba(251,191,36,0.6)]" />
         )}
       </div>
-      <p className="relative text-2xl font-bold text-brand-tan tabular-nums">{value}</p>
-      <div className="relative flex items-center justify-between mt-1">
+      <p className="relative text-xl md:text-2xl font-bold text-brand-tan tabular-nums leading-tight">{value}</p>
+      <div className="relative flex flex-col gap-0.5 mt-1.5 md:flex-row md:items-center md:justify-between">
         <p className="text-xs text-muted">{label}</p>
         <p className="text-[11px] text-brand-tan/40">{sub}</p>
       </div>

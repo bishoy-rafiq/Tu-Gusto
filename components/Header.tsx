@@ -89,7 +89,7 @@ export default function Header({
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-3 md:px-6 pt-safe">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-safe">
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-500 ${
             scrolled

@@ -262,7 +262,7 @@ export default function AdminOrdersPage() {
           <div key={o.id} className="bg-card rounded-2xl border border-white/[0.06] overflow-hidden transition-all hover:border-brand-rust/20 hover:shadow-lg hover:shadow-black/20">
             {/* Order Row */}
             <div
-              className="px-5 py-4 flex items-center justify-between cursor-pointer hover:bg-surface/40 transition-colors"
+              className="px-5 py-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2.5 cursor-pointer hover:bg-surface/40 transition-colors"
               onClick={() => setExpandedId(expandedId === o.id ? null : o.id)}
             >
               <div className="flex items-center gap-4 min-w-0">
@@ -305,7 +305,7 @@ export default function AdminOrdersPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 ml-4 rtl:ml-0 rtl:mr-4">
+              <div className="flex items-center gap-3 w-full sm:w-auto sm:ml-4 rtl:sm:ml-0 rtl:sm:mr-4">
                 <a
                   href={`https://wa.me/${o.phone.replace(/[^0-9]/g, "")}`}
                   target="_blank"

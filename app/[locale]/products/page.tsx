@@ -52,7 +52,7 @@ export default async function ProductsPage({
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="relative pt-28 pb-12 md:pt-36 md:pb-16 px-section-x overflow-hidden">
+      <section className="relative pt-32 pb-12 md:pt-36 md:pb-16 px-section-x overflow-hidden">
         <div className="absolute inset-0 mesh-aurora-light pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-rust/[0.08] -translate-y-1/3 translate-x-1/3 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-caramel/[0.07] translate-y-1/2 -translate-x-1/4 blur-[90px] pointer-events-none" />

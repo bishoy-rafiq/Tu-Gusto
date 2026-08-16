@@ -196,7 +196,7 @@ export default function CheckoutPage() {
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <section className="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-espresso">
+      <section className="relative overflow-hidden pt-32 pb-12 md:pt-32 md:pb-16 bg-espresso">
         <div className="absolute top-0 left-1/4 w-[350px] h-[350px] rounded-full bg-caramel/[0.05] -translate-y-1/2 blur-[70px] pointer-events-none" />
         <div className="max-w-5xl  mx-auto relative z-10">
           <div className="divider mb-2 animate-reveal" />
@@ -210,12 +210,12 @@ export default function CheckoutPage() {
         </div>
       </section>
 
-      <section className="py-section px-section-x relative z-10">
+      <section className="pt-section pb-32 lg:pb-12 px-section-x relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Form */}
             <div className="lg:col-span-7">
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5" id="checkout-form">
                 {error && (
                   <div className="bg-red-500/10 border border-red-500/25 rounded-xl p-3.5 flex items-center gap-3">
                     <svg className="w-4 h-4 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -303,22 +303,6 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={loading || !form.city}
-                  className="btn-accent w-full text-center disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:transform-none disabled:hover:shadow-none"
-                >
-                  {loading ? (
-                    <span className="flex items-center gap-2 justify-center">
-                      <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      {dict.checkout.placing}
-                    </span>
-                  ) : dict.checkout.placeOrder}
-                </button>
               </form>
             </div>
 
@@ -383,6 +367,25 @@ export default function CheckoutPage() {
                     {locale === "ar" ? "اختر المدينة لحساب رسوم التوصيل" : "Select a city to calculate delivery"}
                   </p>
                 )}
+
+                <div className="fixed bottom-0 inset-x-0 z-40 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-[#1A0F08] via-[#1A0F08]/95 to-transparent lg:static lg:z-auto lg:bg-none lg:p-0 lg:mt-5 lg:pt-4 lg:border-t lg:border-border/40">
+                  <button
+                    type="submit"
+                    form="checkout-form"
+                    disabled={loading || !form.city}
+                    className="btn-accent w-full text-center disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:transform-none disabled:hover:shadow-none"
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-2 justify-center">
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        {dict.checkout.placing}
+                      </span>
+                    ) : dict.checkout.placeOrder}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
