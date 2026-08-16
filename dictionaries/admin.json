@@ -1094,5 +1094,21 @@
   "push.iosRequires": {
     "en": "iPhone alerts need iOS 16.4+ and the site added to your Home Screen.",
     "ar": "تنبيهات الآيفون تتطلب iOS 16.4+ وإضافة الموقع إلى الشاشة الرئيسية."
+  },
+  "push.iosStep1": {
+    "en": "Open this site in Safari on your iPhone",
+    "ar": "افتح الموقع في سفاري على الآيفون"
+  },
+  "push.iosStep2": {
+    "en": "Tap Share → “Add to Home Screen”",
+    "ar": "اضغط مشاركة ← “أضف إلى الشاشة الرئيسية”"
+  },
+  "push.iosStep3": {
+    "en": "Open the app from your Home Screen, then tap Enable Alerts",
+    "ar": "افتح التطبيق من الشاشة الرئيسية ثم اضغط تفعيل التنبيهات"
+  },
+  "push.permissionDenied": {
+    "en": "Permission was denied. Allow notifications in your browser settings, or on iPhone add the site to your Home Screen first.",
+    "ar": "تم رفض الإذن. اسمح بالإشعارات من إعدادات المتصفح، أو على الآيفون أضف الموقع للشاشة الرئيسية أولاً."
   }
 }

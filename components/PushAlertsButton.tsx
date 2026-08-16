@@ -57,6 +57,12 @@ export default function PushAlertsButton() {
     setBusy(true);
     try {
       const reg = await navigator.serviceWorker.ready;
+
+      if ("Notification" in window && Notification.permission !== "granted") {
+        const perm = await Notification.requestPermission();
+        if (perm !== "granted") throw new Error("permission-denied");
+      }
+
       const res = await fetch("/api/push/vapid-key");
       const { publicKey } = await res.json();
       if (!publicKey) throw new Error("no-vapid");
@@ -81,6 +87,8 @@ export default function PushAlertsButton() {
         t("push.couldnEnable"),
         (err as Error).message === "no-vapid"
           ? t("push.noVapid")
+          : (err as Error).message === "permission-denied"
+          ? t("push.permissionDenied")
           : t("push.permission")
       );
     } finally {
@@ -139,11 +147,22 @@ export default function PushAlertsButton() {
       </button>
 
       {needsIosSetup && (
-        <span className="text-[11px] text-muted max-w-[240px] leading-snug">
-          {pushApiAvailable
-            ? t("push.iosHint")
-            : t("push.iosRequires")}
-        </span>
+        <div className="mt-1 rounded-xl border border-[var(--border-subtle)] bg-[var(--btn-secondary)]/60 p-3 max-w-[260px]">
+          <p className="text-[11px] font-semibold text-[var(--text-primary)] mb-1.5">
+            {t("push.iosTitle")}
+          </p>
+          <ol className="text-[11px] text-[var(--text-muted)] leading-snug list-decimal list-inside space-y-0.5">
+            {pushApiAvailable ? (
+              <>
+                <li>{t("push.iosStep1")}</li>
+                <li>{t("push.iosStep2")}</li>
+                <li>{t("push.iosStep3")}</li>
+              </>
+            ) : (
+              <li>{t("push.iosRequires")}</li>
+            )}
+          </ol>
+        </div>
       )}
     </div>
   );
