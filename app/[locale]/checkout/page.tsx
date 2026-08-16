@@ -302,6 +302,25 @@ export default function CheckoutPage() {
                       </select>
                     </div>
                   </div>
+
+                  <div className="fixed bottom-0 inset-x-0 z-40 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-[#1A0F08] via-[#1A0F08]/95 to-transparent lg:static lg:z-auto lg:bg-none lg:p-0 lg:mt-6 lg:pt-5 lg:border-t lg:border-border/40">
+                    <button
+                      type="submit"
+                      form="checkout-form"
+                      disabled={loading || !form.city}
+                      className="btn-accent w-full text-center disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:transform-none disabled:hover:shadow-none"
+                    >
+                      {loading ? (
+                        <span className="flex items-center gap-2 justify-center">
+                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                          {dict.checkout.placing}
+                        </span>
+                      ) : dict.checkout.placeOrder}
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -367,25 +386,6 @@ export default function CheckoutPage() {
                     {locale === "ar" ? "اختر المدينة لحساب رسوم التوصيل" : "Select a city to calculate delivery"}
                   </p>
                 )}
-
-                <div className="fixed bottom-0 inset-x-0 z-40 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-[#1A0F08] via-[#1A0F08]/95 to-transparent lg:static lg:z-auto lg:bg-none lg:p-0 lg:mt-5 lg:pt-4 lg:border-t lg:border-border/40">
-                  <button
-                    type="submit"
-                    form="checkout-form"
-                    disabled={loading || !form.city}
-                    className="btn-accent w-full text-center disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:transform-none disabled:hover:shadow-none"
-                  >
-                    {loading ? (
-                      <span className="flex items-center gap-2 justify-center">
-                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
-                        {dict.checkout.placing}
-                      </span>
-                    ) : dict.checkout.placeOrder}
-                  </button>
-                </div>
               </div>
             </div>
           </div>
