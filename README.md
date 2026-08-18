@@ -1,53 +1,48 @@
-# Tu Gusto — على مزاجك
+# Tu Gusto
 
-Premium espresso machines, grinders, and beans, made to your taste.
+Full-stack bilingual e-commerce platform for premium coffee products — built with Next.js 16, Supabase, and Tailwind CSS v4.
 
-A fast, bilingual (English / Arabic, RTL) coffee store with a full admin dashboard.
+[Live Demo](https://tu-gusto.vercel.app/) · [Admin Panel](https://tu-gusto.vercel.app/admin)
 
-## Features
+## Highlights
 
-- **Storefront** — product catalog, search, categories, product pages, cart, and checkout
-- **Bilingual** — full English + Arabic (RTL) support with a language switcher
-- **Admin dashboard** — manage products, stock, and orders; email notifications on new orders
-- **Login** — admin sign-in via Supabase Auth (email + password), password change, rate-limited
-- **Lucky wheel** — spin-to-win discount popup with instant-copy codes
-- **Images** — product photos uploaded to Supabase Storage
-- **PWA-ready** — manifest, icons, service worker, push notifications
-- **Mobile-first** — no horizontal overflow from 360px up, safe-area aware
+- **Bilingual storefront** — English + Arabic with full RTL support
+- **PWA** — installable, offline-ready, service worker, push notifications
+- **Admin dashboard** — product/order/inventory management, real-time stats
+- **OTP login** — email-based customer authentication (no third-party auth)
+- **Spin-to-win wheel** — gamified discount system with instant promo codes
+- **Shipping integration** — Bosta API for live delivery tracking
+- **Email notifications** — order confirmations + bulk marketing via Nodemailer
+- **Mobile-first** — responsive from 360px, safe-area aware, bottom nav
 
 ## Tech Stack
 
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Supabase (Postgres, Auth, Storage) · Nodemailer · web-push
+`Next.js 16` `React 19` `TypeScript` `Tailwind CSS v4` `Supabase` `PostgreSQL` `Nodemailer` `web-push` `PWA`
 
-## Getting Started
+## Architecture
+
+```
+app/                App Router (storefront + admin + API routes)
+components/         Reusable UI (Header, Cart, ProductCard, Wheel, …)
+domain/             Entities, repository interfaces
+application/        Use cases (products, orders, customers)
+infrastructure/     Supabase persistence, auth, notifications, security
+dictionaries/       EN/AR translation JSONs
+```
+
+## Quick Start
 
 ```bash
 npm install
+cp .env.example .env   # fill Supabase + SMTP keys
+npx supabase # run supabase-schema.sql in SQL Editor
 npm run dev
 ```
 
-1. Create a Supabase project and run [`supabase-schema.sql`](supabase-schema.sql) in the SQL Editor (tables + storage bucket).
-2. Copy `.env` values: Supabase URL/key, SMTP for emails, Bosta keys for shipping, VAPID keys for push, and `ADMIN_SESSION_SECRET`.
-3. Create the admin user in Supabase → **Authentication → Users → Add user**.
-4. Open `http://localhost:3000/admin` and sign in.
-
 ## Scripts
 
-| Command             | Description                     |
-| ------------------- | ------------------------------- |
-| `npm run dev`       | Start the dev server            |
-| `npm run build`     | Production build                |
-| `npm start`         | Start the production server     |
-| `node scripts/migrate-images.mjs` | Move local product images to Supabase Storage |
-
-## Project Structure
-
-```
-app/            Routes (storefront + /admin + API)
-components/     UI components (Header, Footer, ProductCard, Wheel, …)
-infrastructure/ Data, auth, notifications, security
-application/    Use cases (products, orders, settings)
-dictionaries/   EN/AR translations
-public/         Images, videos, icons, service worker
-scripts/        Migrations
-```
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Production server |

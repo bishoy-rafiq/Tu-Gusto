@@ -4,8 +4,9 @@ import Header from "@/components/Header";
 import { getDictionary, type Locale } from "@/lib/dictionaries";
 import { notFound } from "next/navigation";
 import WheelPopup from "@/components/WheelPopup";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
+import InstallBanner from "@/components/InstallBanner";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "ar" }];
@@ -70,12 +71,13 @@ export default async function LocaleLayout({
         <CartProvider>
           <Header locale={locale} dict={dict} />
 
-        <main className="flex-1 min-w-0">
+        <main className="flex-1 min-w-0 pb-24 md:pb-0">
           {children}
         </main>
 
+        <BottomNav locale={locale} />
         <WheelPopup />
-        <WhatsAppFloat locale={locale} />
+        <InstallBanner locale={locale} />
         <Footer locale={locale} dict={dict} />
         </CartProvider>
       </ToastProvider>

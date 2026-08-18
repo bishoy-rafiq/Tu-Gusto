@@ -168,3 +168,43 @@ ALTER TABLE public.order_items DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.push_subscriptions DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.wheel_prizes DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.settings DISABLE ROW LEVEL SECURITY;
+
+-- ── Customers (buyer accounts) ──
+CREATE TABLE IF NOT EXISTS public.customers (
+  "id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  "email" text NOT NULL UNIQUE,
+  "name" text NOT NULL DEFAULT '',
+  "phone" text NOT NULL DEFAULT '',
+  "address" text NOT NULL DEFAULT '',
+  "city" text NOT NULL DEFAULT '',
+  "notifyProducts" boolean NOT NULL DEFAULT true,
+  "notifyOffers" boolean NOT NULL DEFAULT true,
+  "createdAt" timestamptz NOT NULL DEFAULT now()
+);
+
+-- ── Customer OTP codes (for login) ──
+CREATE TABLE IF NOT EXISTS public.customer_otps (
+  "id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  "email" text NOT NULL,
+  "code" text NOT NULL,
+  "expiresAt" timestamptz NOT NULL,
+  "used" boolean NOT NULL DEFAULT false,
+  "createdAt" timestamptz NOT NULL DEFAULT now()
+);
+
+-- ── Customer notification subscriptions (push) ──
+CREATE TABLE IF NOT EXISTS public.customer_notifications (
+  "id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  "customerId" uuid NOT NULL REFERENCES public.customers("id") ON DELETE CASCADE,
+  "endpoint" text NOT NULL,
+  "p256dh" text NOT NULL,
+  "auth" text NOT NULL,
+  "createdAt" timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_customer_otps_email ON public.customer_otps("email");
+CREATE INDEX IF NOT EXISTS idx_customer_notifications_customer ON public.customer_notifications("customerId");
+
+ALTER TABLE public.customers DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.customer_notifications DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.customer_otps DISABLE ROW LEVEL SECURITY;

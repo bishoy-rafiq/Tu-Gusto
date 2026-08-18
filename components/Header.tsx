@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useCart } from "./CartContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { usePathname } from "next/navigation";
 
 const CART_ICON =
   "M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z";
+
+type Customer = { id: string; email: string; name: string; phone: string; address: string; city: string };
 
 export default function Header({
   locale,
@@ -23,10 +25,30 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [customer, setCustomer] = useState<Customer | null>(null);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const accountRef = useRef<HTMLDivElement>(null);
 
   const itemCount = items.reduce((sum: number, i: any) => sum + i.quantity, 0);
   const itemName = (item: any) =>
     isRtl ? item.nameAr || item.name : item.name;
+
+  useEffect(() => {
+    fetch("/api/customer/profile")
+      .then((r) => r.json())
+      .then((d) => { if (d.customer) setCustomer(d.customer); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
+        setAccountOpen(false);
+      }
+    }
+    if (accountOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [accountOpen]);
 
   const navItems = [
     {
@@ -36,6 +58,10 @@ export default function Header({
     {
       href: `/${locale}/products`,
       label: dict.nav.shop,
+    },
+    {
+      href: `/${locale}/wheel`,
+      label: locale === "ar" ? "العجلة" : "Wheel",
     },
     {
       href: `/${locale}/about`,
@@ -67,7 +93,8 @@ export default function Header({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function openCart() {
     setCartOpen(true);
@@ -76,6 +103,14 @@ export default function Header({
 
   function closeAll() {
     setCartOpen(false);
+    setMenuOpen(false);
+    setAccountOpen(false);
+  }
+
+  async function logout() {
+    await fetch("/api/customer/profile", { method: "DELETE" });
+    setCustomer(null);
+    setAccountOpen(false);
     setMenuOpen(false);
   }
 
@@ -158,6 +193,80 @@ export default function Header({
               )}
             </button>
 
+            {/* Desktop WhatsApp */}
+            <a
+              href={`https://wa.me/${(process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_PHONE || "").replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden md:flex rounded-full p-2.5 transition-all duration-300 text-[#25D366] hover:bg-[#25D366]/10`}
+              aria-label="WhatsApp"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+
+            {/* Desktop account dropdown */}
+            <div ref={accountRef} className="hidden md:block relative">
+              <button
+                onClick={() => setAccountOpen((o) => !o)}
+                className={`rounded-full p-2.5 transition-all duration-300 ${
+                  scrolled
+                    ? "text-[var(--text-primary)] hover:bg-white/[0.06]"
+                    : "text-white hover:bg-white/10"
+                }`}
+                aria-label={locale === "ar" ? "حسابي" : "Account"}
+                aria-expanded={accountOpen}
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </button>
+
+              {accountOpen && (
+                <div className={`absolute ${isRtl ? "left-0" : "right-0"} mt-2 w-56 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/50 shadow-xl shadow-black/30 py-1.5 z-50 animate-reveal`}>
+                  {customer ? (
+                    <>
+                      <div className="px-4 py-3 border-b border-[var(--border-subtle)]/40">
+                        <p className="text-[var(--text-primary)] text-sm font-medium truncate">{customer.name || customer.email}</p>
+                        <p className="text-[var(--text-muted)] text-xs truncate mt-0.5">{customer.email}</p>
+                      </div>
+                      <Link
+                        href={`/${locale}/account`}
+                        onClick={() => setAccountOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                        {locale === "ar" ? "الملف الشخصي" : "Profile"}
+                      </Link>
+                      <button
+                        onClick={logout}
+                        className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                        </svg>
+                        {locale === "ar" ? "تسجيل خروج" : "Logout"}
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      href={`/${locale}/account`}
+                      onClick={() => setAccountOpen(false)}
+                      className="flex items-center gap-3 px-4 py-3 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-colors"
+                    >
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg>
+                      {locale === "ar" ? "تسجيل الدخول" : "Sign In"}
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
+
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMenuOpen((o) => !o)}
@@ -229,6 +338,72 @@ export default function Header({
                 </Link>
               );
             })}
+
+            <div className="my-3 h-px bg-[var(--border-subtle)]/60" />
+
+            {/* Cart + Orders in mobile menu */}
+            <Link
+              href={`/${locale}/cart`}
+              onClick={closeAll}
+              className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-all duration-300"
+            >
+              <span className="font-medium">{dict.cart.title}</span>
+              {hydrated && itemCount > 0 && (
+                <span className="bg-[var(--accent-orange)] text-[var(--color-espresso)] text-[10px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 tabular-nums">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
+            </Link>
+            <Link
+              href={`/${locale}/orders`}
+              onClick={closeAll}
+              className="flex items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-all duration-300"
+            >
+              <span className="font-medium">{locale === "ar" ? "طلباتي" : "Orders"}</span>
+              <svg className={`w-4 h-4 ${isRtl ? "rotate-180" : ""} text-[var(--text-muted)]/40`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </Link>
+
+            <div className="my-3 h-px bg-[var(--border-subtle)]/60" />
+            {customer ? (
+              <>
+                <div className="px-4 py-3">
+                  <p className="text-[var(--text-primary)] text-sm font-medium">{customer.name || customer.email}</p>
+                  <p className="text-[var(--text-muted)] text-xs mt-0.5">{customer.email}</p>
+                </div>
+                <Link
+                  href={`/${locale}/account`}
+                  onClick={closeAll}
+                  className="flex items-center gap-3 rounded-2xl px-4 py-3.5 text-[15px] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                  <span className="font-medium">{locale === "ar" ? "الملف الشخصي" : "Profile"}</span>
+                </Link>
+                <button
+                  onClick={logout}
+                  className="w-full flex items-center gap-3 rounded-2xl px-4 py-3.5 text-[15px] text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                  </svg>
+                  <span className="font-medium">{locale === "ar" ? "تسجيل خروج" : "Logout"}</span>
+                </button>
+              </>
+            ) : (
+              <Link
+                href={`/${locale}/account`}
+                onClick={closeAll}
+                className="flex items-center gap-3 rounded-2xl px-4 py-3.5 text-[15px] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-white/[0.04] transition-all duration-300"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                <span className="font-medium">{locale === "ar" ? "تسجيل الدخول" : "Sign In"}</span>
+              </Link>
+            )}
 
             <div className="my-3 h-px bg-[var(--border-subtle)]/60" />
 

@@ -4,11 +4,15 @@ import { useCart } from "@/components/CartContext";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams } from "next/navigation";
 import { CITIES, getDeliveryFee } from "@/domain/pricing";
-import type { CityDelivery } from "@/domain/entities";
 import Link from "next/link";
 import Image from "next/image";
 
 type WonPrize = { label: string; code: string };
+
+type CustomerProfile = {
+  id: string; email: string; name: string; phone: string; address: string; city: string;
+  notifyProducts: boolean; notifyOffers: boolean;
+};
 
 export default function CheckoutPage() {
   const { items, total, clearCart, hydrated, removeItem } = useCart();
@@ -24,6 +28,7 @@ export default function CheckoutPage() {
   const [discountApplied, setDiscountApplied] = useState(false);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [placed, setPlaced] = useState<{ orderId: string } | null>(null);
+  const [customerProfile, setCustomerProfile] = useState<CustomerProfile | null>(null);
   const idempotencyKeyRef = useRef<string>(
     typeof crypto !== "undefined" && crypto.randomUUID
       ? crypto.randomUUID()
@@ -33,6 +38,24 @@ export default function CheckoutPage() {
   useEffect(() => {
     import(`@/dictionaries/${locale}.json`).then((m) => setDict(m.default));
   }, [locale]);
+
+  useEffect(() => {
+    fetch("/api/customer/profile")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.customer) {
+          setCustomerProfile(d.customer);
+          setForm((prev) => ({
+            customerName: prev.customerName || d.customer.name || "",
+            phone: prev.phone || d.customer.phone || "",
+            email: prev.email || d.customer.email || "",
+            address: prev.address || d.customer.address || "",
+            city: prev.city || d.customer.city || "",
+          }));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("wheel-prize");
@@ -95,8 +118,44 @@ export default function CheckoutPage() {
         }
         clearCart();
         const data = await res.json().catch(() => ({}));
-        setPlaced({ orderId: data.orderId || "" });
+        const orderId = data.orderId || "";
+
+        try {
+          const savedOrders = JSON.parse(localStorage.getItem("atugusto-orders") || "[]");
+          savedOrders.unshift({
+            orderId,
+            customerName: form.customerName,
+            phone: form.phone,
+            email: form.email,
+            address: form.address,
+            city: form.city,
+            items: items.map((item) => ({
+              name: item.name,
+              nameAr: item.nameAr,
+              price: item.price,
+              quantity: item.quantity,
+              imageUrl: item.imageUrl,
+            })),
+            subtotal: total,
+            deliveryFee,
+            discountAmount,
+            finalTotal,
+            date: new Date().toISOString(),
+          });
+          if (savedOrders.length > 50) savedOrders.length = 50;
+          localStorage.setItem("atugusto-orders", JSON.stringify(savedOrders));
+        } catch {}
+
+        setPlaced({ orderId });
         setLoading(false);
+
+        if (customerProfile) {
+          fetch("/api/customer/profile", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: form.customerName, phone: form.phone, address: form.address, city: form.city }),
+          }).catch(() => {});
+        }
       } else {
         const data = await res.json().catch(() => ({}));
         const serverError: string = data.error || "";

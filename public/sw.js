@@ -2,23 +2,53 @@ self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
 
 let audioCtx = null;
+let audioBuffer = null;
 
-function playChime(url) {
-  return fetch(url)
-    .then((r) => r.arrayBuffer())
-    .then((data) => {
-      const AC = self.AudioContext || self.webkitAudioContext;
-      if (!AC) return;
-      if (!audioCtx) audioCtx = new AC();
-      if (audioCtx.state === "suspended") audioCtx.resume();
-      return audioCtx.decodeAudioData(data).then((audioBuffer) => {
-        const src = audioCtx.createBufferSource();
-        src.buffer = audioBuffer;
-        src.connect(audioCtx.destination);
-        src.start();
-      });
-    })
-    .catch(() => {});
+function getAudioContext() {
+  if (audioCtx) return audioCtx;
+  try {
+    const AC = self.AudioContext || self.webkitAudioContext;
+    if (!AC) return null;
+    audioCtx = new AC();
+    return audioCtx;
+  } catch {
+    return null;
+  }
+}
+
+async function preloadSound(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return;
+    const data = await res.arrayBuffer();
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    if (ctx.state === "suspended") await ctx.resume();
+    audioBuffer = await ctx.decodeAudioData(data);
+  } catch {}
+}
+
+async function playChime(url) {
+  try {
+    if (!audioBuffer) {
+      const res = await fetch(url);
+      if (!res.ok) return;
+      const data = await res.arrayBuffer();
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      if (ctx.state === "suspended") await ctx.resume();
+      audioBuffer = await ctx.decodeAudioData(data);
+    }
+
+    const ctx = getAudioContext();
+    if (!ctx || !audioBuffer) return;
+    if (ctx.state === "suspended") await ctx.resume();
+
+    const src = ctx.createBufferSource();
+    src.buffer = audioBuffer;
+    src.connect(ctx.destination);
+    src.start(0);
+  } catch {}
 }
 
 self.addEventListener("push", (e) => {
@@ -26,13 +56,23 @@ self.addEventListener("push", (e) => {
   const options = {
     body: data.body,
     icon: data.icon || "/icon-192.png",
-    badge: "/icon-192.png",
+    badge: data.badge || "/icon-192.png",
     data: data.data || {},
+    tag: data.tag || "order-notification",
+    renotify: true,
+    vibrate: [200, 100, 200, 100, 200],
+    requireInteraction: true,
   };
-  if (data.sound) options.sound = data.sound;
+
+  if (data.sound) {
+    options.sound = data.sound;
+  }
 
   const tasks = [self.registration.showNotification(data.title, options)];
-  if (data.sound) tasks.push(playChime(data.sound));
+
+  if (data.sound) {
+    tasks.push(playChime(data.sound).catch(() => {}));
+  }
 
   e.waitUntil(Promise.all(tasks));
 });

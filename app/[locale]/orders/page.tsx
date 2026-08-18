@@ -1,8 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+
+type SavedOrder = {
+  orderId: string;
+  customerName: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  items: { name: string; nameAr?: string; price: string; quantity: number; imageUrl: string }[];
+  subtotal: number;
+  deliveryFee: number;
+  discountAmount: number;
+  finalTotal: number;
+  date: string;
+};
 
 export default function FindOrderPage() {
   const { locale } = useParams();
@@ -13,6 +28,20 @@ export default function FindOrderPage() {
   const [email, setEmail] = useState("");
   const [searching, setSearching] = useState(false);
   const [error, setError] = useState("");
+  const [savedOrders, setSavedOrders] = useState<SavedOrder[]>([]);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("atugusto-orders");
+      if (raw) setSavedOrders(JSON.parse(raw));
+    } catch {}
+  }, []);
+
+  function removeSavedOrder(orderId: string) {
+    const updated = savedOrders.filter((o) => o.orderId !== orderId);
+    setSavedOrders(updated);
+    try { localStorage.setItem("atugusto-orders", JSON.stringify(updated)); } catch {}
+  }
 
   async function search(e: React.FormEvent) {
     e.preventDefault();
@@ -38,6 +67,9 @@ export default function FindOrderPage() {
       setSearching(false);
     }
   }
+
+  const displayName = (item: { name: string; nameAr?: string }) =>
+    isAr ? item.nameAr || item.name : item.name;
 
   return (
     <main className="min-h-screen">
@@ -121,10 +153,77 @@ export default function FindOrderPage() {
             ) : (
               <>
                 Once your order is found, you can <strong className="text-brand-brown">edit the delivery details</strong> or{" "}
-                <strong className="text-brand-brown">cancel the order</strong> while it's still pending.
+                <strong className="text-brand-brown">cancel the order</strong> while it&apos;s still pending.
               </>
             )}
           </div>
+
+          {savedOrders.length > 0 && (
+            <div className="mt-10">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-8 h-px bg-brand-rust/40" />
+                <span className="text-brand-rust text-[11px] font-semibold tracking-[0.28em] uppercase">
+                  {isAr ? "طلباتي المحفوظة" : "My Saved Orders"}
+                </span>
+                <span className="w-8 h-px bg-brand-rust/40" />
+              </div>
+
+              <div className="space-y-3">
+                {savedOrders.map((order) => (
+                  <div key={order.orderId} className="card-elevated p-5 relative">
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
+                        <p className="text-brand-brown font-semibold text-sm">
+                          #{order.orderId.slice(-6).toUpperCase()}
+                        </p>
+                        <p className="text-muted text-xs mt-0.5">
+                          {new Date(order.date).toLocaleDateString(isAr ? "ar-EG" : "en-EG", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                      <div className="text-left">
+                        <p className="text-brand-brown font-bold text-sm tabular-nums">{order.finalTotal.toFixed(2)} EGP</p>
+                        <p className="text-muted text-[11px]">{order.items.length} {isAr ? "منتجات" : "items"}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+                      {order.items.slice(0, 4).map((item, idx) => (
+                        <div key={idx} className="w-10 h-10 rounded-lg bg-surface flex-shrink-0 overflow-hidden">
+                          <img src={item.imageUrl} alt={displayName(item)} className="w-full h-full object-cover" />
+                        </div>
+                      ))}
+                      {order.items.length > 4 && (
+                        <span className="text-muted text-xs flex-shrink-0">+{order.items.length - 4}</span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border/30">
+                      {order.orderId && (
+                        <Link
+                          href={`/${locale}/orders/${order.orderId}?e=${encodeURIComponent(order.email)}`}
+                          className="text-xs text-brand-rust hover:text-brand-tan transition-colors font-medium"
+                        >
+                          {isAr ? "تتبع" : "Track"} →
+                        </Link>
+                      )}
+                      <button
+                        onClick={() => removeSavedOrder(order.orderId)}
+                        className="text-xs text-muted hover:text-red-400 transition-colors ml-auto"
+                      >
+                        {isAr ? "حذف" : "Remove"}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>

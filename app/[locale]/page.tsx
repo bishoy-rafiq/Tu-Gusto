@@ -111,17 +111,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 min-[420px]:grid-cols-3 gap-3 mt-14 max-w-2xl mx-auto animate-reveal delay-5">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-14 max-w-2xl mx-auto animate-reveal delay-5">
             {[
               { n: isAr ? "شحن مجاني" : "Free Shipping", s: isAr ? "للطلبات فوق الحد الأدنى" : "on qualifying orders" },
               { n: isAr ? "جودة مضمونة" : "100% Quality", s: isAr ? "منتجات أصلية" : "authentic & tested" },
               { n: isAr ? "دعم فوري" : "Fast Support", s: isAr ? "جاهزون لمساعدتك" : "we're here for you" },
             ].map((item) => (
-              <div key={item.n} className="glass-chip rounded-2xl px-4 py-3 flex items-center justify-center gap-3">
+              <div key={item.n} className="glass-chip rounded-xl sm:rounded-2xl px-2 sm:px-4 py-2 sm:py-3 flex items-center justify-center gap-2 sm:gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-rust/70 flex-shrink-0" />
                 <div className="text-left rtl:text-right">
-                  <p className="text-white/90 font-semibold text-[13px] leading-tight">{item.n}</p>
-                  <p className="text-white/35 text-[11px]">{item.s}</p>
+                  <p className="text-white/90 font-semibold text-[11px] sm:text-[13px] leading-tight">{item.n}</p>
+                  <p className="text-white/35 text-[9px] sm:text-[11px] hidden sm:block">{item.s}</p>
                 </div>
               </div>
             ))}

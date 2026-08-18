@@ -90,11 +90,11 @@ export default function WheelPopup() {
 
   return (
     <>
-      {/* Floating trigger */}
+      {/* Floating trigger — desktop only (mobile has it in BottomNav) */}
       {!open && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] right-6 z-50 bg-brand-rust text-espresso w-14 h-14 rounded-full shadow-xl shadow-brand-rust/30 flex items-center justify-center hover:scale-105 hover:shadow-brand-rust/40 transition-all duration-400 animate-pulse-glow"
+          className="hidden md:flex fixed bottom-6 right-6 z-50 bg-brand-rust text-espresso w-14 h-14 rounded-full shadow-xl shadow-brand-rust/30 items-center justify-center hover:scale-105 hover:shadow-brand-rust/40 transition-all duration-400 animate-pulse-glow"
           aria-label={dict.wheel.openLabel}
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
