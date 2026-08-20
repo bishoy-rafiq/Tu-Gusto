@@ -26,9 +26,8 @@ const tabs = [
   {
     key: "whatsapp",
     href: () => {
-      const phone = process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_PHONE || "";
-      const clean = phone.replace(/\D/g, "");
-      return clean ? `https://wa.me/${clean}` : "#";
+      const phone = (process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_PHONE || "201112136071").replace(/\D/g, "");
+      return phone ? `https://wa.me/${phone}` : "#";
     },
     icon: "M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm3.375.375a.375.375 0 110-.75.375.375 0 010 .75zM12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12 21a8.966 8.966 0 01-5.082-1.547.375.375 0 00-.233.044l-1.5.563a.375.375 0 01-.48-.48l.563-1.5a.375.375 0 00.044-.233A8.966 8.966 0 013 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z",
     label: { en: "Chat", ar: "محادثة" },

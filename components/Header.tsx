@@ -195,7 +195,7 @@ export default function Header({
 
             {/* Desktop WhatsApp */}
             <a
-              href={`https://wa.me/${(process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_PHONE || "").replace(/\D/g, "")}`}
+              href={`https://wa.me/${(process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_PHONE || "201112136071").replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className={`hidden md:flex rounded-full p-2.5 transition-all duration-300 text-[#25D366] hover:bg-[#25D366]/10`}
